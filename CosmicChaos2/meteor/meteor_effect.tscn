@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://cgv16yfuwibwa"]
+
+[ext_resource type="Texture2D" uid="uid://c4vd5exht34yx" path="res://SpaceShooter_Assets/meteorSmall.png" id="1_ajuvr"]
+[ext_resource type="Script" path="res://meteor/meteor_effect.gd" id="2_h2i8w"]
+
+[sub_resource type="Gradient" id="Gradient_avjjr"]
+colors = PackedColorArray(1, 1, 1, 0.988235, 1, 1, 1, 0)
+
+[node name="MeteorEffect" type="CPUParticles2D"]
+emitting = false
+amount = 20
+one_shot = true
+explosiveness = 1.0
+texture = ExtResource("1_ajuvr")
+emission_shape = 1
+emission_sphere_radius = 15.0
+spread = 180.0
+gravity = Vector2(0, 98)
+initial_velocity_min = 24.9
+initial_velocity_max = 85.51
+angular_velocity_min = 100.0
+angular_velocity_max = 500.0
+scale_amount_min = 0.5
+scale_amount_max = 1.5
+color_ramp = SubResource("Gradient_avjjr")
+script = ExtResource("2_h2i8w")

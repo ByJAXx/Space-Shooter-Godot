@@ -1,0 +1,109 @@
+[gd_scene load_steps=6 format=3 uid="uid://n6phoccap3df"]
+
+[ext_resource type="Script" path="res://Mainscenes/game_over_screen.gd" id="1_1t7d0"]
+[ext_resource type="FontFile" uid="uid://bhr2rhqo8dmnd" path="res://SpaceShooter_Assets/fonts/Kenney Future.ttf" id="1_mciny"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_063cc"]
+bg_color = Color(0, 0.6, 0.6, 1)
+corner_radius_top_left = 125
+corner_radius_top_right = 125
+corner_radius_bottom_right = 125
+corner_radius_bottom_left = 125
+
+[sub_resource type="LabelSettings" id="LabelSettings_iwxbt"]
+font = ExtResource("1_mciny")
+font_size = 150
+
+[sub_resource type="LabelSettings" id="LabelSettings_y4jbj"]
+font = ExtResource("1_mciny")
+font_size = 120
+
+[node name="GameOverScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1t7d0")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.490196)
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -217.0
+offset_top = -138.0
+offset_right = 592.0
+offset_bottom = 493.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.365)
+pivot_offset = Vector2(19.4089, 20.3892)
+theme_override_styles/panel = SubResource("StyleBoxFlat_063cc")
+
+[node name="GameOver" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -267.909
+offset_top = -227.684
+offset_right = 807.091
+offset_bottom = -57.684
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+theme_override_font_sizes/font_size = 0
+text = "Game Over"
+label_settings = SubResource("LabelSettings_iwxbt")
+
+[node name="Score" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -257.909
+offset_top = -66.0402
+offset_right = 817.091
+offset_bottom = 103.96
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+theme_override_font_sizes/font_size = 0
+text = "Score:"
+label_settings = SubResource("LabelSettings_y4jbj")
+
+[node name="Button" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = 89.1644
+offset_right = 200.0
+offset_bottom = 223.164
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_mciny")
+theme_override_font_sizes/font_size = 50
+text = "Try Again"
+
+[connection signal="pressed" from="Panel/Button" to="." method="_on_button_pressed"]

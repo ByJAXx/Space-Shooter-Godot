@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=3 uid="uid://ccknkko5rwju7"]
+
+[ext_resource type="Script" path="res://Mainscenes/gameplay.gd" id="1_5ucsi"]
+[ext_resource type="Texture2D" uid="uid://ccgghddxjxpv1" path="res://SpaceShooter_Assets/backgroundColor.png" id="1_54i75"]
+[ext_resource type="PackedScene" uid="uid://dm31odqqvx4gm" path="res://player/palyer.tscn" id="1_bb4mj"]
+[ext_resource type="Texture2D" uid="uid://cyuqw8xfgn452" path="res://SpaceShooter_Assets/starBig.png" id="2_8kb75"]
+[ext_resource type="PackedScene" uid="uid://n6phoccap3df" path="res://Mainscenes/game_over_screen.tscn" id="2_8xjrj"]
+[ext_resource type="PackedScene" uid="uid://d33scv2aj3pwn" path="res://HUD/hud.tscn" id="6_st0vs"]
+[ext_resource type="Script" path="res://Enemy/Spawner.gd" id="10_gs470"]
+
+[node name="Gameplay" type="Node"]
+script = ExtResource("1_5ucsi")
+
+[node name="UILayer" type="CanvasLayer" parent="."]
+
+[node name="Hud" parent="UILayer" instance=ExtResource("6_st0vs")]
+offset_right = 7.0
+
+[node name="GameOverScreen" parent="UILayer" instance=ExtResource("2_8xjrj")]
+visible = false
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(1, 2)
+scale = Vector2(4.05333, 5.44)
+texture = ExtResource("1_54i75")
+centered = false
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="background"]
+position = Vector2(75.4945, 1.25)
+amount = 150
+lifetime = 4.0
+texture = ExtResource("2_8kb75")
+emission_shape = 3
+emission_rect_extents = Vector2(80, 1)
+direction = Vector2(0, 1)
+spread = 10.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 70.0
+initial_velocity_max = 70.0
+scale_amount_min = 0.2
+scale_amount_max = 0.9
+
+[node name="palyer" parent="." instance=ExtResource("1_bb4mj")]
+position = Vector2(250, 359)
+
+[node name="Spawner" type="Node2D" parent="."]
+script = ExtResource("10_gs470")
+
+[node name="spawntime" type="Timer" parent="Spawner"]
+
+[connection signal="timeout" from="Spawner/spawntime" to="Spawner" method="_on_spawntime_timeout"]

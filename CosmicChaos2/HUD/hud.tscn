@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=3 uid="uid://d33scv2aj3pwn"]
+
+[ext_resource type="Script" path="res://HUD/hud.gd" id="1_jt4r2"]
+[ext_resource type="PackedScene" uid="uid://do7n2mht777n5" path="res://HUD/life_icon.tscn" id="1_lq5ht"]
+
+[node name="Hud" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jt4r2")
+metadata/_edit_vertical_guides_ = [-185.0]
+
+[node name="Lifecontainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 10.0
+offset_right = 142.0
+offset_bottom = 50.0
+
+[node name="LifeIcon" parent="Lifecontainer" instance=ExtResource("1_lq5ht")]
+layout_mode = 2
+expand_mode = 2
+
+[node name="LifeIcon2" parent="Lifecontainer" instance=ExtResource("1_lq5ht")]
+layout_mode = 2
+expand_mode = 2
+
+[node name="LifeIcon3" parent="Lifecontainer" instance=ExtResource("1_lq5ht")]
+layout_mode = 2
+expand_mode = 2
+
+[node name="Score" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -27.0
+offset_top = 10.0
+offset_right = 28.0
+offset_bottom = 33.0
+grow_horizontal = 2
+text = "000000"

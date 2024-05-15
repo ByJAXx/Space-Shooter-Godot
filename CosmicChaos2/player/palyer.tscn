@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://dm31odqqvx4gm"]
+
+[ext_resource type="Script" path="res://player/palyer.gd" id="1_qcbwe"]
+[ext_resource type="Texture2D" uid="uid://d3ib5fl0hkw2p" path="res://MilanoAnimated2.png" id="2_0yipx"]
+
+[node name="palyer" type="Area2D"]
+script = ExtResource("1_qcbwe")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("2_0yipx")
+hframes = 3
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(0, 2)
+polygon = PackedVector2Array(0, -33, 16, -17, 39, -7, 63, 16, 31, 5, 10, 5, 4, 19, -4, 19, -9, 5, -32, 5, -62, 15, -40, -7, -17, -17, 0, -33)
+
+[node name="firingpositions" type="Node2D" parent="."]
+
+[node name="leftgun" type="Node2D" parent="firingpositions"]
+position = Vector2(-17, -19)
+
+[node name="rightgun" type="Node2D" parent="firingpositions"]
+position = Vector2(16, -19)
+
+[node name="InvisibilityTimer" type="Timer" parent="."]

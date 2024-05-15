@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://dmrla8tky0it3"]
+
+[ext_resource type="PackedScene" uid="uid://bdp11itgdf255" path="res://Enemy/enemy.tscn" id="1_hiy0w"]
+[ext_resource type="Script" path="res://Enemy/nave.gd" id="2_dn2er"]
+[ext_resource type="Texture2D" uid="uid://4jku68ww0fx1" path="res://SpaceShooter_Assets/enemyShip.png" id="3_jh6pg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3ynbt"]
+size = Vector2(93, 55)
+
+[node name="Nave" instance=ExtResource("1_hiy0w")]
+script = ExtResource("2_dn2er")
+verticalSpeed = 200
+health = 25
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(-1, 3)
+scale = Vector2(0.979592, 1.12)
+texture = ExtResource("3_jh6pg")
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(-0.5, 2.5)
+shape = SubResource("RectangleShape2D_3ynbt")
+
+[node name="VisibleOnScreenNotifier2D" parent="." index="2"]
+position = Vector2(-0.500009, 2)
+scale = Vector2(4.65, 2.6)

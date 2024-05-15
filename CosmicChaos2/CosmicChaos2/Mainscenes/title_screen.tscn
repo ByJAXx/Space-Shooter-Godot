@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://panxyqhiracp"]
+
+[ext_resource type="Script" path="res://Mainscenes/TitleScreen.gd" id="1_reucn"]
+[ext_resource type="Texture2D" uid="uid://bembpkx1qflo5" path="res://StartScreen.png" id="2_3rwm4"]
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_reucn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(299.5, 480)
+scale = Vector2(0.556481, 0.498958)
+texture = ExtResource("2_3rwm4")
+
+[node name="StartButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 180.0
+offset_right = 219.0
+offset_bottom = 224.0
+text = "Start"
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]

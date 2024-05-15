@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://dm31odqqvx4gm"]
+
+[ext_resource type="Texture2D" uid="uid://drplelcy50hkf" path="res://SpaceShooter_Assets/SpaceShooter_Assets/player_sheet.png" id="1_jjefd"]
+[ext_resource type="Script" path="res://player/palyer.gd" id="1_qcbwe"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ai1bb"]
+radius = 32.1403
+
+[node name="palyer" type="Area2D"]
+script = ExtResource("1_qcbwe")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("1_jjefd")
+hframes = 3
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_ai1bb")
+
+[node name="firingpositions" type="Node2D" parent="."]
+
+[node name="leftgun" type="Node2D" parent="firingpositions"]
+position = Vector2(-35, -11)
+
+[node name="rightgun" type="Node2D" parent="firingpositions"]
+position = Vector2(34, -12)
+
+[node name="InvisibilityTimer" type="Timer" parent="."]
